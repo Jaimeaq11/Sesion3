@@ -31,4 +31,12 @@ class CuentaTest {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
+	
+	@Test
+	void testIngresar() {
+		cuenta.ingresar(500.0);
+		assertEquals(500, cuenta.getSaldo());
+	}
+	
+	
 }
