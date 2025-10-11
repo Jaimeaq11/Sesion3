@@ -41,14 +41,8 @@ public class Cuenta {
 		// TODO Auto-generated constructor stub
 		this.saldo = saldo;
 	}
-
+	
 	public void ingresar(Double x) {
-		// TODO Auto-generated method stub
-		this.saldo += x;
-	}
-
-	public void retirar(Double x) {
-		// TODO Auto-generated method stub
-		this.saldo -= x;
-	}
+		saldo = saldo + x;
+	}	
 }
