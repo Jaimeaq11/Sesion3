@@ -1,10 +1,13 @@
 package pkg;
 
+import java.util.List;
+
 public class Cuenta {
 	
 	String numero;
 	String titular;
 	Double saldo;
+	List<Movimiento> nMovimientos;
 	
 	public Cuenta(String numero) {
 		this.numero = numero;
@@ -39,14 +42,13 @@ public class Cuenta {
 		this.saldo = saldo;
 	}
 
-	public void ingresar(Double i) {
+	public void ingresar(Double x) {
 		// TODO Auto-generated method stub
-		this.saldo += i;
+		this.saldo += x;
 	}
 
-	public void retirar(Double i) {
+	public void retirar(Double x) {
 		// TODO Auto-generated method stub
-		this.saldo -= i;
+		this.saldo -= x;
 	}
-	
 }
