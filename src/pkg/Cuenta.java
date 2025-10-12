@@ -1,5 +1,6 @@
 package pkg;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cuenta {
@@ -7,7 +8,7 @@ public class Cuenta {
 	String numero;
 	String titular;
 	Double saldo;
-	List<Movimiento> nMovimientos;
+	List<Movimiento> nMovimientos = new ArrayList<Movimiento>();
 	
 	public Cuenta(String numero) {
 		this.numero = numero;
@@ -44,9 +45,16 @@ public class Cuenta {
 	
 	public void ingresar(Double x) {
 		saldo = saldo + x;
+		nMovimientos.add(new Movimiento(Movimiento.signo.Ingreso, x, "Ingreso"));
 	}	
 	
 	public void retirar(Double x) {
-		saldo = saldo - x;
+		if (saldo - x >= -500) { // límite descubierto
+	        saldo = saldo - x;
+	        nMovimientos.add(new Movimiento(Movimiento.signo.Retirada, x, "Retirada"));
+	    } else {
+	        System.out.println("Fondos insuficientes para retirada (saldo " + saldo + "€) en la cuenta "
+	        		+ numero + " para la retirada de " + x + "€");
+	    }
 	}	
 }
