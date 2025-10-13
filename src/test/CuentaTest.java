@@ -35,12 +35,27 @@ class CuentaTest {
 	@Test
 	void testIngresar() {
 		cuenta.ingresar(500.0);
-		assertEquals(500, cuenta.getSaldo());
+		assertEquals(500.0, cuenta.getSaldo());
 	}
 	
 	@Test
 	void testRetirar() {
 		cuenta.retirar(500.0);
 		assertEquals(-500.0, cuenta.getSaldo());
+	}
+	
+	//valores limite
+	@Test
+	void testRetiradaValor500() {
+		cuenta.setSaldo(0.0);
+		cuenta.retirar(500.0);
+		assertEquals(-500.0, cuenta.getSaldo());
+	}
+	
+	@Test
+	void testRetiradaValor501() {
+		cuenta.setSaldo(0.0);
+		cuenta.retirar(501.0);
+		assertEquals(0.0, cuenta.getSaldo());
 	}
 }
